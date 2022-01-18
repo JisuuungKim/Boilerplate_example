@@ -21,7 +21,7 @@ const getUser = catchAsync(async (req, res) => {
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
   }
-  res.send(user);
+  res.send(user); // todo: 왜 여기는 status가 없나
 });
 
 const updateUser = catchAsync(async (req, res) => {

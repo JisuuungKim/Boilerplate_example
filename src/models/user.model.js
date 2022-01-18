@@ -33,7 +33,7 @@ const userSchema = mongoose.Schema(
           throw new Error('Password must contain at least one letter and one number');
         }
       },
-      private: true, // used by the toJSON plugin
+      private: true, // used by the toJSON plugin //todo:json 플러그인 사용하는 이유는?
     },
     role: {
       type: String,
