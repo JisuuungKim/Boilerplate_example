@@ -1,6 +1,9 @@
 const httpStatus = require('http-status');
+const mongoose = require('mongoose');
 const { Celebrity } = require('../models');
 const ApiError = require('../utils/ApiError');
+
+const { ObjectId } = mongoose.Types;
 
 const createCelebrity = async (name) => {
   if (!name) {
@@ -18,7 +21,7 @@ const getCelebrityByName = async (name) => {
 };
 
 const updateCelebrityById = async (id, body) => {
-  return Celebrity.updateOne({ id }, { $set: body });
+  return Celebrity.updateOne({ _id: new ObjectId(id) }, body);
 };
 
 module.exports = {
